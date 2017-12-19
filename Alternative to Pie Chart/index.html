@@ -1,0 +1,101 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://d3js.org/d3.v4.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+
+  <style>
+    circle.dimple-series-1 {
+      fill :red;
+    }
+
+    h2{
+      text-align: left;
+      margin-left: 120px;
+    }
+  </style>
+    <script type="text/javascript">
+      function draw(data) {
+        "use strict";
+        var margin = 75,
+            width = 1400 - margin,
+            height = 600 - margin;
+
+        d3.select('body').append('h2').text('US Smartphone Marketshare');
+
+        var svg = d3.select("body")
+          .append("svg")
+            .attr("width", width + margin)
+            .attr("height", height + margin)
+            .append('g')
+            .attr('class','chart');
+
+        var myChart = new dimple.chart(svg, initialData);
+        myChart.setBounds(40, 20, 460, 360)
+        myChart.addMeasureAxis("p", "percent");
+        var ring = myChart.addSeries("name", dimple.plot.pie);
+        ring.innerRadius = "30%";
+        // myChart.addLegend(500, 20, 90, 300, "left");
+        // myChart.addLegend(0, 0, 90, '100%', "left");
+        ring.afterDraw = function(shape, data) {
+				var g = svg.select("g");
+        //find the center of the pie
+				var grect =  g.node().getBBox();
+				var gmidx =  grect.x + (grect.width - 7)/2;	
+				var gmidy =  grect.y + (grect.height - 7)/2;
+				var radius = (grect.height - 7) / 2; 
+        //find the center of the pie-part
+				var srect =  d3.select(shape).node().getBBox();
+				var smidx =  srect.x + srect.width/2;	
+				var smidy =  srect.y + srect.height/2;
+        //get the direction:
+        //the parts are arranged around the center as origin (0,0)
+        //so the direction is simply the mid point of the pie-part
+				var dirx =   smidx;
+				var diry =   smidy;
+				var norm =   Math.sqrt(dirx * dirx + diry * diry);
+				//normalize the direction
+				dirx /= norm;
+				diry /= norm;
+        //multiply direction by radius to find placement for label
+        //get two points: where to put label, and where to draw a line
+				var x = Math.round(gmidx + (radius + 25) * dirx);
+				var y = Math.round(gmidy + (radius + 15)  * diry);
+				var xOnPie = Math.round(gmidx + (radius+4) * dirx);
+				var yOnPie = Math.round(gmidy + (radius+4) * diry);
+        //append label
+				var node = svg.append("text")
+		        	.attr("x", x + ((dirx > 0) ? 5 : -5))
+		        	.attr("y", y + 3)
+					.style("font-size", "12px")
+		        	.style("font-family", "sans-serif")
+		        	.style("text-anchor", (dirx > 0) ? "start" : "end")
+				    .style("fill", "black")
+					.text(data.aggField[0] + " (%" + data.p +")");
+        //append line
+				svg.append("line")
+				    .attr("x1", x)
+				    .attr("y1", y)
+				    .attr("x2", xOnPie)
+				    .attr("y2", yOnPie)
+				    .style("stroke", "#e0e0e0");
+			}
+
+        myChart.draw();
+      };
+      </script>
+  </head>
+<body>
+  <script type="text/javascript">
+  var initialData = [
+    {'name' : 'Apple', 'percent' : 19.5 },
+    {'name' : 'Motorola', 'percent' : 7.4 },
+    {'name' : 'Nokia', 'percent' : 3.1 },
+    {'name' : 'Other', 'percent' : 21.2 },
+    {'name' : 'Palm', 'percent' : 9.8 },
+    {'name' : 'RIM', 'percent' : 39 }
+  ];
+  d3.json(initialData, draw);
+  </script>
+</body>
+</html>

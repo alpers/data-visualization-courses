@@ -32,7 +32,7 @@
         var myChart = new dimple.chart(svg, initialData);
         var x = myChart.addMeasureAxis("x", "rate"); 
         myChart.addCategoryAxis("y", "name");
-        myChart.addSeries(null, dimple.plot.bar);
+        myChart.addSeries("name", dimple.plot.bar);
         myChart.draw();
       };
       </script>
