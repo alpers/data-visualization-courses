@@ -21,7 +21,7 @@
 | Original | Fixed |
 |:-------------------------:|:-------------------------:|
 |<img height="300" src="img/estimativa.jpg"> | <img height="300" src="img/estimativa_fixed.jpg">|
-[Image source](https://www.rtp.pt/noticias/autarquicas2017/sondagem-ps-a-beira-da-maioria-absoluta-em-matosinhos_n1029426)
+[Image source](https://www.rtp.pt/noticias/autarquicas2017/sondagem-ps-a-beira-da-maioria-absoluta-em-matosinhos_n1029426)|[Implementation](Visualization%20Makeover/index.html)
 
 ***
 
@@ -30,6 +30,6 @@
 | Original | Fixed |
 |:-------------------------:|:-------------------------:|
 |<img height="300" src="img/phonemarketshare.jpg"> | <img height="300" src="img/phonemarketshare_fixed.jpg">|
-[Image source](https://theanalyticsstore.ie/12-days-data-analytics-day-4-show-data-data/)
+[Image source](https://theanalyticsstore.ie/12-days-data-analytics-day-4-show-data-data/)|[Implementation](Alternative%20to%20Pie%20Chart/index.html)
 
 ***
