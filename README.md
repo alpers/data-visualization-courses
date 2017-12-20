@@ -33,3 +33,14 @@
 [Image source](https://theanalyticsstore.ie/12-days-data-analytics-day-4-show-data-data/)|[Implementation](Alternative%20to%20Pie%20Chart/index.html)
 
 ***
+
+**World Cup Home Games**
+
+*Capitalization-globalization in time
+
+| Original | Fixed |
+|:-------------------------:|:-------------------------:|
+|<img height="300" src="img/worldcupold.jpg"> | <img height="300" src="img/worldcupnew.jpg">|
+[Old](World%20Cup%20Home%20Games/old.html)|[New](World%20Cup%20Home%20Games/index.html)
+
+***
