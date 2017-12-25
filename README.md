@@ -44,3 +44,16 @@
 [Old](World%20Cup%20Home%20Games/old.html)|[New](World%20Cup%20Home%20Games/index.html)
 
 ***
+
+**Final - Globe World Cup**
+
+*Interactive Map
+
+Martini Glass Structure (Author Driven and Reader Driven)
+
+| Original |
+|:-------------------------:|
+|<img height="300" src="img/worldcupglobe.jpg"> | <img height="300" src="img/worldcupglobe.jpg">|
+[Code](Final%20-%20Globe%20World%20Cup/index.html)|
+
+***
